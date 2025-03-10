@@ -1,18 +1,14 @@
-# Домашнее задание к занятию "`Работа с Playbook`" - `Никулин Михаил Сергеевич`
-
-
-
+# Домашнее задание к занятию "Работа с Playbook" - `Александра Бужор`
 ---
-
 ## Основная часть
 
 #### 1. Подготовьте свой inventory-файл `prod.yml`.
 
-Подготовим [prod.yml](ВСТАВИТЬ ссылку на файл в репозитории)
+Подготовим [prod.yml](https://github.com/AngryCFO/SHKONF_Playbook/blob/23aa13ee4f386c29cbb42633fca2704147707d79/src/playbook/inventory/prod.yml)
 
 #### 2. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает [vector](https://vector.dev). Конфигурация vector должна деплоиться через template файл jinja2. От вас не требуется использовать все возможности шаблонизатора, просто вставьте стандартный конфиг в template файл. Информация по шаблонам по [ссылке](https://www.dmosk.ru/instruktions.php?object=ansible-nginx-install).
 
-В [site.yml](ВСТАВИТЬ ссылку на файл в репозитории) добавлен блок task с ```tags: vector```, который устанавливает и настраивает Vector
+В [site.yml](https://github.com/AngryCFO/SHKONF_Playbook/blob/23aa13ee4f386c29cbb42633fca2704147707d79/src/playbook/site.yml) добавлен блок task с ```tags: vector```, который устанавливает и настраивает Vector
 
 #### 3. При создании tasks рекомендую использовать модули: `get_url`, `template`, `unarchive`, `file`.
 
@@ -33,7 +29,7 @@
 
 #### 4. Tasks должны: скачать дистрибутив нужной версии, выполнить распаковку в выбранную директорию, установить vector.
 
-Нужные task представлены в [site.yml](ВСТАВИТЬ ссылку на файл в репозитории)
+Нужные task представлены в [site.yml](https://github.com/AngryCFO/SHKONF_Playbook/blob/23aa13ee4f386c29cbb42633fca2704147707d79/src/playbook/site.yml)
 
 #### 5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.
 
@@ -84,10 +80,10 @@ Read documentation for instructions on how to ignore specific rule violations.
 Failed: 11 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'min'.
 ```
 Ошибки заключаются в отсутствии имени блока, неверной последовательности task/block и неверном указании параметров ```mode```. Добавил имя, а остальные ошибки решил автоматическим исправлением ``` ansible-lint site.yml --fix```
-Отформатированный файл [site.yml](ВСТАВИТЬ ссылку на файл в репозитории)
+Отформатированный файл [site.yml](https://github.com/AngryCFO/SHKONF_Playbook/blob/23aa13ee4f386c29cbb42633fca2704147707d79/src/playbook/site.yml)
 #### 6. Попробуйте запустить playbook на этом окружении с флагом `--check`.
 
-!!!СКРИНШОТ ИЗ КОНСОЛИ ВСТАВИТЬ!!!
+![image](https://github.com/user-attachments/assets/329e9743-a714-465c-8902-5428acd4b5da)
 
 Проверка останавливается на этапе установки пакетов Clickhouse, т.к. они не скачаны в систему
 
@@ -312,7 +308,7 @@ clickhouse-01              : ok=16   changed=3    unreachable=0    failed=0    s
 
 #### 9. Подготовьте README.md-файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги. Пример качественной документации ansible playbook по [ссылке](https://github.com/opensearch-project/ansible-playbook).
 
-[site.yml](ВСТАВИТЬ ссылку на файл в репозитории) содержит 2 блока:
+[site.yml](https://github.com/AngryCFO/SHKONF_Playbook/blob/23aa13ee4f386c29cbb42633fca2704147707d79/src/playbook/site.yml) содержит 2 блока:
 #### 1. Первый блок объединяет последовательность задач по инсталяции Clickhouse. Блоку соответствует ```tags: clickhouse```. В блоке используются параметры:
 - ```clickhouse_version: "22.3.3.44"``` - версия Clickhouse
 - ```clickhouse_packages: ["clickhouse-client", "clickhouse-server", "clickhouse-common-static"]``` - список пакетов для установки
